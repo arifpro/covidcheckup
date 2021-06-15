@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://diagnosisEdit.caption"
+        focusComponent="form"
+        messagesPack="me.devarif.covidcheckup.web.screens.diagnosis">
+    <data>
+        <instance id="diagnosisDc"
+                  class="me.devarif.covidcheckup.entity.Diagnosis">
+            <view extends="_local">
+                <property name="doctor" view="_minimal"/>
+                <property name="patient" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="diagnosisDc">
+                <column width="350px">
+                    <textField id="autoNumField" property="autoNum" enable="false"/>
+                    <pickerField id="doctorField" property="doctor"/>
+                    <pickerField id="patientField" property="patient">
+                        <actions>
+                            <action id="lookup" type="picker_lookup"/>
+                            <action id="open" type="picker_open"/>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </pickerField>
+                    <checkBox id="feverField" property="fever"/>
+                    <checkBox id="coughField" property="cough"/>
+                    <checkBox id="shortnessBreathField" property="shortnessBreath"/>
+                    <checkBox id="fatigueField" property="fatigue"/>
+                    <checkBox id="muscleAchesField" property="muscleAches"/>
+                    <checkBox id="headacheField" property="headache"/>
+                    <checkBox id="lossTasteField" property="lossTaste"/>
+                    <checkBox id="soreThroatField" property="soreThroat"/>
+                    <checkBox id="congestionField" property="congestion"/>
+                    <checkBox id="nauseaField" property="nausea"/>
+                    <checkBox id="diarrheaField" property="diarrhea"/>
+                    <textField id="totalScoreField" property="totalScore"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

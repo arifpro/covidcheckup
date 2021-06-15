@@ -1,14 +1,17 @@
 package me.devarif.covidcheckup.entity;
 
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.Listeners;
 import com.haulmont.cuba.core.entity.annotation.Lookup;
 import com.haulmont.cuba.core.entity.annotation.LookupType;
+import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Table(name = "COVIDCHECKUP_DIAGNOSIS")
 @Entity(name = "covidcheckup_Diagnosis")
+@Listeners("covidcheckup_DiagnosisChangedListener")
 public class Diagnosis extends StandardEntity {
     private static final long serialVersionUID = 3587864775860867005L;
 

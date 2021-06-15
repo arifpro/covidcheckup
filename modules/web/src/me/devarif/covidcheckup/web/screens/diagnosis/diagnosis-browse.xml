@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://diagnosisBrowse.caption"
+        focusComponent="diagnosesTable"
+        messagesPack="me.devarif.covidcheckup.web.screens.diagnosis">
+    <data readOnly="true">
+        <collection id="diagnosesDc"
+                    class="me.devarif.covidcheckup.entity.Diagnosis">
+            <view extends="_local">
+                <property name="doctor" view="_minimal"/>
+                <property name="patient" view="_minimal"/>
+            </view>
+            <loader id="diagnosesDl">
+                <query>
+                    <![CDATA[select e from covidcheckup_Diagnosis e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="diagnosesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="diagnosesTable"
+                dataLoader="diagnosesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="diagnosesTable"
+                    width="100%"
+                    dataContainer="diagnosesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="autoNum"/>
+                <column id="doctor"/>
+                <column id="patient"/>
+                <column id="fever"/>
+                <column id="cough"/>
+                <column id="shortnessBreath"/>
+                <column id="fatigue"/>
+                <column id="muscleAches"/>
+                <column id="headache"/>
+                <column id="lossTaste"/>
+                <column id="soreThroat"/>
+                <column id="congestion"/>
+                <column id="nausea"/>
+                <column id="diarrhea"/>
+                <column id="totalScore"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="diagnosesTable.create"/>
+                <button id="editBtn" action="diagnosesTable.edit"/>
+                <button id="removeBtn" action="diagnosesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
