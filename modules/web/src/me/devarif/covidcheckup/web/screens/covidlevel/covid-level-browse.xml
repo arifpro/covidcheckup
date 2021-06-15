@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://covidLevelBrowse.caption"
+        focusComponent="covidLevelsTable"
+        messagesPack="me.devarif.covidcheckup.web.screens.covidlevel">
+    <data readOnly="true">
+        <collection id="covidLevelsDc"
+                    class="me.devarif.covidcheckup.entity.CovidLevel">
+            <view extends="_local"/>
+            <loader id="covidLevelsDl">
+                <query>
+                    <![CDATA[select e from covidcheckup_CovidLevel e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="covidLevelsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="covidLevelsTable"
+                dataLoader="covidLevelsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="covidLevelsTable"
+                    width="100%"
+                    dataContainer="covidLevelsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="score"/>
+                <column id="level"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="covidLevelsTable.create"/>
+                <button id="editBtn" action="covidLevelsTable.edit"/>
+                <button id="removeBtn" action="covidLevelsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

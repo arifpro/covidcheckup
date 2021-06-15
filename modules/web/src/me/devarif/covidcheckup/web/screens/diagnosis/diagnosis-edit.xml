@@ -39,9 +39,12 @@
                     <checkBox id="congestionField" property="congestion"/>
                     <checkBox id="nauseaField" property="nausea"/>
                     <checkBox id="diarrheaField" property="diarrhea"/>
-                    <textField id="totalScoreField" property="totalScore"/>
+                    <textField id="totalScoreField" property="totalScore" visible="false"/>
                 </column>
             </form>
+
+            <label id="showMsg" stylename="bold colored"/>
+
         </scrollBox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>

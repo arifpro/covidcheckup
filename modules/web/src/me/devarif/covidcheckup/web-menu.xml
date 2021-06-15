@@ -4,5 +4,6 @@
         <item screen="covidcheckup_Doctor.browse" caption="mainMsg://menu_config.covidcheckup_Doctor.browse"/>
         <item screen="covidcheckup_Patient.browse" caption="mainMsg://menu_config.covidcheckup_Patient.browse"/>
         <item screen="covidcheckup_Diagnosis.browse" caption="mainMsg://menu_config.covidcheckup_Diagnosis.browse"/>
+        <item screen="covidcheckup_CovidLevel.browse" caption="mainMsg://menu_config.covidcheckup_CovidLevel.browse"/>
     </menu>
 </menu-config>

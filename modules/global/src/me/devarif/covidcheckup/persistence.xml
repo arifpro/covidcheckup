@@ -5,5 +5,6 @@
         <class>me.devarif.covidcheckup.entity.Doctor</class>
         <class>me.devarif.covidcheckup.entity.Patient</class>
         <class>me.devarif.covidcheckup.entity.Diagnosis</class>
+        <class>me.devarif.covidcheckup.entity.CovidLevel</class>
     </persistence-unit>
 </persistence>
