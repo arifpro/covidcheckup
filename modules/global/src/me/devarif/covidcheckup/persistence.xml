@@ -2,5 +2,8 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
     <persistence-unit name="covidcheckup" transaction-type="RESOURCE_LOCAL">
 
+        <class>me.devarif.covidcheckup.entity.Doctor</class>
+        <class>me.devarif.covidcheckup.entity.Patient</class>
+        <class>me.devarif.covidcheckup.entity.Diagnosis</class>
     </persistence-unit>
 </persistence>
