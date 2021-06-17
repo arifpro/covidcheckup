@@ -26,57 +26,57 @@ public class DiagnosisEdit extends StandardEditor<Diagnosis> {
 
     @Subscribe("feverField")
     public void onFeverFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("coughField")
     public void onCoughFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("shortnessBreathField")
     public void onShortnessBreathFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("fatigueField")
     public void onFatigueFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("muscleAchesField")
     public void onMuscleAchesFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("headacheField")
     public void onHeadacheFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("lossTasteField")
     public void onLossTasteFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("soreThroatField")
     public void onSoreThroatFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("congestionField")
     public void onCongestionFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("nauseaField")
     public void onNauseaFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     @Subscribe("diarrheaField")
     public void onDiarrheaFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
-        calcTotalScore(Objects.requireNonNull(event.getValue()));
+        calcTotalScore(event.getValue());
     }
 
     void calcTotalScore(Boolean checked){
@@ -97,7 +97,7 @@ public class DiagnosisEdit extends StandardEditor<Diagnosis> {
         int totalscore = getEditedEntity().getTotalScore();
         //
         List<CovidLevel> results = dataManager.load(CovidLevel.class)
-                .query("select e from covidhelper_CovidLevel e where e.score <= :totalscore order by e.score desc")
+                .query("select e from covidcheckup_CovidLevel e where e.score <= :totalscore order by e.score desc")
                 .parameter("totalscore", totalscore)
                 .list();
 
